@@ -16,6 +16,60 @@
   Once you've implemented the logic, test your code by running
 */
 
-class Calculator {}
+class Calculator {
+  #result;
+  constructor( result ) {
+    this.#result = result;
+  }
+
+  get getResult() {
+    return this.#result;
+  }
+  
+  add( number ){
+    this.#result += number;
+  }
+  subtract( number ){
+    this.#result -= number;
+  }
+  multiply( number ){
+    this.#result *= number;
+  }
+  divide( number ){
+    this.#result /= number;
+  }
+  clear(){
+    this.#result = 0;
+  }
+  calculate( problem ){
+    let escapedProblem = problem.replace( /\s/g, "" );
+    if( escapedProblem.length === 0 ){
+      return;
+    }
+
+  }
+}
+
+class Stack {
+  constructor() {
+    this.items = [];
+  }
+
+  push( item ){
+    this.items.unshift(item);
+  }
+
+  pop() {
+    let firstItem = this.items[0];
+    this.items = this.items.shift();
+    return firstItem;
+  }
+  isEmpty(){
+    if( this.items.length === 0 ) {
+      return true;
+    }
+    return false;
+  }
+}
 
 module.exports = Calculator;

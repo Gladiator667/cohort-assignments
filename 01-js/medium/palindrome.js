@@ -4,7 +4,16 @@
 */
 
 function isPalindrome(str) {
+  let lowerstr = str.toLowerCase();
+  let escaped  = lowerstr.replace( /[.,\/#!$%\^&\*;:{}=\-_`~()?]/g, "" );
+  escaped      = escaped.replace( /\s/g, "" );
+  //console.log(escaped);
+  for( let i = 0, j = escaped.length - 1; i < j; i++, j--) {
+    if( escaped[i] !== escaped[j] ) {
+      return false;
+    }
+  }
   return true;
 }
-
+//console.log(isPalindrome('Eva. can I see bees in a cave?'));
 module.exports = isPalindrome;
